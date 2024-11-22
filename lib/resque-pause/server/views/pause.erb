@@ -8,7 +8,7 @@
     <th>Jobs</th>
   </tr>
   <% for queue in resque.queues.sort_by { |q| q.to_s } %>
-  <tr bgcolor=<%= "#f79292" if paused?(queue)>
+  <tr bgcolor=<%= "#f79292" if paused?(queue) %>>
     <td class='queue'><%= queue %></td>
     <td class='status'><input class="pause" type="checkbox" value="<%= queue%>" <%= "checked" if paused?(queue) %>></input></td>
     <td class='size'><%= resque.size queue %></td>
