@@ -1,10 +1,6 @@
-# Resque Pause [![alt build status][1]][2]
+# Resque Pause
 
-[1]: https://secure.travis-ci.org/wandenberg/resque-pause.png
-[2]: http://travis-ci.org/#!/wandenberg/resque-pause
-
-
-A [Resque][rq] plugin. Requires Resque 1.9.10.
+A [Resque](http://github.com/defunkt/resque) plugin. Requires Resque 1.9.10.
 
 resque-pause adds functionality to pause resque jobs through the web interface.
 
@@ -13,8 +9,7 @@ The job finish the process it are doing and don't get a new task to do,
 until the queue is released.
 You can use this functionality to do some maintenance whithout kill workers, for example.
 
-Usage / Examples
-----------------
+## Usage / Examples
 
 ### Single Job Instance
 
@@ -47,7 +42,6 @@ ResquePauseHelper.unpause(:network_graph)
 
 Single-queue pause is achieved by storing a pause/queue key in Redis.
 
-
 ### Global Pause
 
 You can also pause all the queues at once.
@@ -73,9 +67,7 @@ An anology would be with light switches and circuit breakers. Positioning light 
 * When the job instance try to execute and the queue is paused, the job is paused for a slice of time.
 * If the queue still paused after this time the job will abort and will be enqueued again with the same arguments.
 
-
-Resque-Web integration
-----------------------
+## Resque-Web integration
 
 You have to load ResquePause to enable the Pause tab.
 
@@ -83,8 +75,7 @@ You have to load ResquePause to enable the Pause tab.
 require 'resque-pause/server'
 ```
 
-Customise & Extend
-==================
+# Customise & Extend
 
 ### Job pause check interval
 
@@ -113,16 +104,12 @@ The above modification will ensure the job will wait for 30 seconds before abort
 
 To change the exact key that will be put into redis to signal a global pause, use the `global_pause_key` config
 
-````ruby
+```ruby
 ResquePauseHelper.global_pause_key = "my_custom_key"
-````
+```
 
-Install
-=======
+# Install
 
 ```bash
 $ gem install resque-pause
 ```
-
-[rq]: http://github.com/defunkt/resque
-[resque-pause]: https://github.com/wandenberg/resque-pause

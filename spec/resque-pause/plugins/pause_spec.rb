@@ -9,7 +9,7 @@ class PauseJob
 end
 
 describe Resque::Plugins::Pause do
-  it "should be compliance with Resqu::Plugin document" do
+  it "should be compliance with Resque::Plugin document" do
     expect { Resque::Plugin.lint(Resque::Plugins::Pause) }.to_not raise_error
   end
 
